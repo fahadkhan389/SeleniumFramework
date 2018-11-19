@@ -15,5 +15,8 @@ namespace SeleniumWebdriver.Interfaces
         string GetWebsite();
         int GetPageloadTime();
         int GetElementloadTime();
+        DeviceType GetDevice();
+        string GetDeviceName();
+
     }
 }

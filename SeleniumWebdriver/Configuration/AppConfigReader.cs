@@ -47,5 +47,15 @@ namespace SeleniumWebdriver.Configuration
         {
             return ConfigurationManager.AppSettings.Get(AppConfigKeys.Website);
         }
+        public DeviceType GetDevice()
+        {
+            string browser = ConfigurationManager.AppSettings.Get(AppConfigKeys.DeviceType);
+            return (DeviceType)Enum.Parse(typeof(DeviceType), browser);
+         }
+
+        public string GetDeviceName()
+        {
+            return ConfigurationManager.AppSettings.Get(AppConfigKeys.DeviceName);
+         }
     }
 }

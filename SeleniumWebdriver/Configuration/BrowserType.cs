@@ -14,4 +14,10 @@ namespace SeleniumWebdriver.Configuration
         PhantomJS
 
     }
+    public enum DeviceType
+    {
+        IOS,
+        Android,
+        
+    }
 }

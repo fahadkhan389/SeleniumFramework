@@ -14,7 +14,9 @@ namespace SeleniumWebdriver.Settings
         public const string Website = "Website";
         public const string PageLoadTimeOut = "PageLoadTimeOut";
         public const string ElementLoadTimeOut = "ElementLoadTimeOut";
+        public const string DeviceType = "DeviceType";
+        public const string DeviceName = "DeviceName";
 
-        
+
     }
 }
