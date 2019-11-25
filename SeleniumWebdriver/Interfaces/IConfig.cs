@@ -10,13 +10,10 @@ namespace SeleniumWebdriver.Interfaces
    public interface IConfig
     {
         BrowserType GetBrowser();
-        string GetUsername();
-        string GetPassword();
         string GetWebsite();
         int GetPageloadTime();
         int GetElementloadTime();
-        DeviceType GetDevice();
-        string GetDeviceName();
+        
 
     }
 }

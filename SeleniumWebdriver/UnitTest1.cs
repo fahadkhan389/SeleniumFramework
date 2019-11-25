@@ -5,6 +5,9 @@ using OpenQA.Selenium.Chrome;
 using System.Configuration;
 using SeleniumWebdriver.Configuration;
 using SeleniumWebdriver.Interfaces;
+using SeleniumWebdriver.ComponentHelper;
+using SeleniumWebdriver.Settings;
+using SeleniumWebdriver.Pages;
 
 namespace SeleniumWebdriver
 {
@@ -12,23 +15,46 @@ namespace SeleniumWebdriver
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
-
+        public void TestCase1()
         {
-            IConfig config = new AppConfigReader();
-            Console.WriteLine("Browser:{0}", config.GetBrowser());
-            Console.WriteLine("Browser:{0}", config.GetUsername());
-            Console.WriteLine("Browser:{0}", config.GetPassword());
+            NavigationHelper.NavigatetoURL(ObjectRepo.config.GetWebsite());
+            HomePage hpage = new HomePage(ObjectRepo.driver);
+            ContactPage cpage=hpage.ClickContact();
+            cpage.SubmitAndValidateError();
+            cpage.EnterMandatoryFieldsAndValidateNoError();
         }
+
+        [TestMethod]
+        public void TestCase2()
+        {
+            NavigationHelper.NavigatetoURL(ObjectRepo.config.GetWebsite());
+            HomePage hpage = new HomePage(ObjectRepo.driver);
+            ContactPage cpage = hpage.ClickContact();
+            cpage.EnterMandatoryFieldsAndSubmit();
+        }
+
+        [TestMethod]
+        public void TestCase3()
+        {
+            NavigationHelper.NavigatetoURL(ObjectRepo.config.GetWebsite());
+            HomePage hpage = new HomePage(ObjectRepo.driver);
+            ContactPage cpage = hpage.ClickContact();
+            cpage.SubmitInvalidDataAndValidateError();
+
+        }
+
+        [TestMethod]
+        public void TestCase4()
+        {
+            NavigationHelper.NavigatetoURL(ObjectRepo.config.GetWebsite());
+            HomePage hpage = new HomePage(ObjectRepo.driver);
+            ShopPage spage = hpage.ClickShop();
+            spage.ClickFunnyCow();
+            spage.ClickFunnyCow();
+            spage.ClickFluffyBunny();
+            CartPage cartpage=  spage.ClickCart();
+            cartpage.VerifyQuantity();
+        }
+
     }
 }
-
-
-//    Console.WriteLine(ConfigurationManager.AppSettings.Get("Browser"));
-//    Console.WriteLine((int)BrowserType.Firefox);
-//    Console.WriteLine((int)BrowserType.IExplorer);
-//    IWebDriver driver = new ChromeDriver();
-//    driver.Navigate().GoToUrl("http://www.youtube.com");
-//    driver.Close();
-//    driver.Quit();
-//}

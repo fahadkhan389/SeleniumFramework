@@ -10,17 +10,13 @@ namespace SeleniumWebdriver.ComponentHelper
 {
     public class TextBoxHelper
     {
-        private static IWebElement element;
-
-        public static void EnterText(By locator,string text)
+        public static void EnterText(IWebElement element, string text)
         {
-            element=GenericHelper.GetElement(locator);
             element.SendKeys(text);
 
         }
-        public static void ClearText(By locator)
+        public static void ClearText(IWebElement element)
         {
-            element = GenericHelper.GetElement(locator);
             element.Clear();
 
         }

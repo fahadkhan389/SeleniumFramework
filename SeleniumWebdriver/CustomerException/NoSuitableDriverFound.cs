@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SeleniumWebdriver.CustomerException
 {
-   public class NoSuitableDriverFound:Exception
+    public class NoSuitableDriverFound : Exception
 
     {
         public NoSuitableDriverFound(string msg) : base(msg)

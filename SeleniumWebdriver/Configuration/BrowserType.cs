@@ -10,14 +10,6 @@ namespace SeleniumWebdriver.Configuration
     {
         Firefox,
         Chrome,
-        IExplorer,
-        PhantomJS
-
-    }
-    public enum DeviceType
-    {
-        IOS,
-        Android,
-        
+       
     }
 }

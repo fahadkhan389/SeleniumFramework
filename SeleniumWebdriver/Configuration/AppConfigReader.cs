@@ -13,8 +13,8 @@ namespace SeleniumWebdriver.Configuration
     {
         public BrowserType GetBrowser()
         {
-            string browser= ConfigurationManager.AppSettings.Get(AppConfigKeys.Browser);
-            return (BrowserType)Enum.Parse(typeof(BrowserType),browser);
+            string browser = ConfigurationManager.AppSettings.Get(AppConfigKeys.Browser);
+            return (BrowserType)Enum.Parse(typeof(BrowserType), browser);
         }
 
         public int GetElementloadTime()
@@ -27,35 +27,15 @@ namespace SeleniumWebdriver.Configuration
 
         public int GetPageloadTime()
         {
-            string timeout=ConfigurationManager.AppSettings.Get(AppConfigKeys.PageLoadTimeOut);
+            string timeout = ConfigurationManager.AppSettings.Get(AppConfigKeys.PageLoadTimeOut);
             if (timeout == null)
                 return 30;
             return Convert.ToInt32(timeout);
-        }
-
-        public string GetPassword()
-        {
-            return ConfigurationManager.AppSettings.Get(AppConfigKeys.Password);
-        }
-
-        public string GetUsername()
-        {
-            return ConfigurationManager.AppSettings.Get(AppConfigKeys.Username);
         }
 
         public string GetWebsite()
         {
             return ConfigurationManager.AppSettings.Get(AppConfigKeys.Website);
         }
-        public DeviceType GetDevice()
-        {
-            string browser = ConfigurationManager.AppSettings.Get(AppConfigKeys.DeviceType);
-            return (DeviceType)Enum.Parse(typeof(DeviceType), browser);
-         }
-
-        public string GetDeviceName()
-        {
-            return ConfigurationManager.AppSettings.Get(AppConfigKeys.DeviceName);
-         }
     }
 }

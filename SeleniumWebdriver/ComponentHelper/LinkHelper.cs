@@ -12,9 +12,8 @@ namespace SeleniumWebdriver.ComponentHelper
     {
         private static IWebElement element;
 
-        public static void ClickLink(By locator)
+        public static void ClickLink(IWebElement element)
         {
-            element=GenericHelper.GetElement(locator);
             element.Click();
 
         }

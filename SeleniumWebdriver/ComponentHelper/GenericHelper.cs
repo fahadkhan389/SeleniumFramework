@@ -22,11 +22,30 @@ namespace SeleniumWebdriver.ComponentHelper
                 throw new NoSuchElementException("Element Not found:" + locator.ToString());
 
         }
-        public static string GetElementText(By locator)
+     
+        public static string GetElementText(IWebElement element)
         {
-            IWebElement element = ObjectRepo.driver.FindElement(locator);
             return element.Text;
         }
+
+        public static Boolean ElementExists(IWebElement element)
+        {
+            Boolean result = false;
+            try
+            {
+               if(element.Displayed)
+                    
+                    result = true;
+            }
+            catch (Exception e)
+         {
+                
+                result = false;
+            }
+
+            return result;
+        }
+
         public static void TakeScreenShot(string filename = "Screen")
         {
             Screenshot screen = ObjectRepo.driver.TakeScreenshot();
